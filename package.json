@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev": "node dev.mjs",
-    "test": "node --test \"src/**/*.test.js\" \"server/**/*.test.js\"",
+    "test": "node --test",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write ."
   },
