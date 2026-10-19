@@ -1,0 +1,43 @@
+{
+  "name": "bugblitz",
+  "version": "1.0.0",
+  "description": "A free mini app for running a bug blitz: your team walks the same core flows for 30 minutes and says what tripped them up. You sort it, and Claude can file the tickets.",
+  "keywords": [
+    "bug-blitz",
+    "usability-testing",
+    "qa",
+    "heuristics",
+    "linear",
+    "claude"
+  ],
+  "homepage": "https://www.urquhart.design/bugblitz/",
+  "bugs": {
+    "url": "https://github.com/DanUrq/bugblitz/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanUrq/bugblitz.git"
+  },
+  "license": "MIT",
+  "author": "Daniel Urquhart",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node dev.mjs",
+    "test": "node --test \"src/**/*.test.js\" \"server/**/*.test.js\"",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@vercel/blob": "2.8.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.13.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.9"
+  }
+}
