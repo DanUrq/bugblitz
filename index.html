@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bug Blitz: run a bug blitz with your team</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta
+      name="description"
+      content="A free, open-source mini app for running a bug blitz: your team walks the same core flows for 30 minutes and says what tripped them up. You sort it, and Claude can file the tickets."
+    />
+    <style>
+      @font-face {
+        font-family: Geist;
+        src: url(fonts/Geist-Variable.woff2) format('woff2');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Geist Mono';
+        src: url(fonts/GeistMono-Variable.woff2) format('woff2');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      /* The page's tokens. The app takes them through its --bb-* properties (src/style.js). */
+      :root {
+        color-scheme: dark;
+        --paper: #0b0b0c;
+        --ink: #f2f2f3;
+        --muted: #a9abb1;
+        --rule: #232428;
+        --soft: #141518;
+        --sans: Geist, ui-sans-serif, system-ui, sans-serif;
+        --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font: 16px/1.6 var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap {
+        max-width: 1360px;
+        margin: 0 auto;
+        padding: 24px 20px 0;
+      }
+      @media (min-width: 640px) {
+        .wrap {
+          padding: 32px 32px 0;
+        }
+      }
+      #app {
+        min-height: 70vh;
+      }
+      #app .bb-app {
+        --bb-ink: var(--ink);
+        --bb-muted: var(--muted);
+        --bb-paper: var(--soft);
+        --bb-soft: var(--paper);
+        --bb-rule: var(--rule);
+        --bb-font: var(--sans);
+        --bb-mono: var(--mono);
+        --bb-r: 18px;
+        --bb-r-sm: 10px;
+      }
+      #app .bb-toast {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 24px;
+      }
+      footer {
+        margin-top: 96px;
+        padding: 24px 0 40px;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px 24px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      footer nav {
+        display: flex;
+        gap: 18px;
+      }
+      footer a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      footer span a {
+        color: var(--ink);
+      }
+      footer a:hover {
+        color: var(--ink);
+      }
+      noscript p {
+        max-width: 60ch;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <main id="app">
+        <noscript><p>Bug Blitz needs JavaScript.</p></noscript>
+      </main>
+      <footer>
+        <span>Bug Blitz is free and open source, by <a href="https://www.urquhart.design/">Daniel Urquhart</a>.</span>
+        <nav aria-label="Project">
+          <a href="https://github.com/DanUrq/bugblitz">Source on GitHub</a
+          ><a href="https://github.com/DanUrq/bugblitz/blob/main/LICENSE">MIT license</a>
+        </nav>
+      </footer>
+    </div>
+    <script type="module">
+      import { mountBugBlitz } from './src/view.js';
+      mountBugBlitz(document.getElementById('app'));
+    </script>
+  </body>
+</html>
